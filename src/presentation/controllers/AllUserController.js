@@ -1,8 +1,12 @@
 const UserService = require("../../domain/user/services/UserService")
-class UserController {
+
+class AllUserController {
     handle(req, res, next) {
-        const {body} = req
-        UserService.create(body)
+        const {
+            body
+        } = req
+        UserService.createUser(body)
+
         res.send({
             name: req.body.name,
             email: req.body.email,
@@ -11,8 +15,14 @@ class UserController {
             celular: req.body.celular,
             nascimento: req.body.nascimento,
             email_sms: req.body.email_sms,
-            whatsapp: req.body.whatsapp
+            whatsapp: req.body.whatsapp,
+            pais: req.body.pais,
+            cidade: req.body.cidade,
+            cep: req.body.cep,
+            endereco: req.body.endereco,
+            numero: req.body.numero
         });
     }
 }
-module.exports = new UserController();
+
+module.exports = new AllUserController();
